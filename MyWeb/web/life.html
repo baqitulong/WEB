@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="范皓博的生活切片：工作日、早餐、武汉的冬天与工训">
+  <meta name="robots" content="noindex, nofollow">
+  <title>生活切片 | 范皓博</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: #20211e;
+      background-color: #f4f0e8;
+      background-image:
+        linear-gradient(rgba(35, 55, 110, 0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(35, 55, 110, 0.055) 1px, transparent 1px),
+        radial-gradient(circle at 90% 3%, #dce5ff 0, transparent 32%);
+      background-size: 72px 72px, 72px 72px, 100% 100%;
+      background-attachment: fixed;
+      font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 1080px;
+      min-height: 100vh;
+      margin: 0 auto;
+      padding: 28px 36px 22px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* 顶部导航 */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #c9c4b9;
+      color: #77746b;
+      font-size: 11px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #20211e;
+      font-size: 11px;
+      letter-spacing: 1px;
+    }
+
+    .logo {
+      display: flex;
+      width: 32px;
+      height: 32px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #20211e;
+      font-family: Consolas, monospace;
+      font-size: 10px;
+    }
+
+    .nav {
+      display: flex;
+      gap: 16px;
+      font-family: Consolas, monospace;
+      font-size: 10px;
+      letter-spacing: 0.5px;
+    }
+
+    .nav a {
+      color: #77746b;
+      transition: color 0.2s;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      color: #1d3fbd;
+    }
+
+    /* 标题 */
+    .hero {
+      padding: 46px 0 30px;
+      border-bottom: 1px solid #c9c4b9;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: #1d3fbd;
+      font-family: Consolas, monospace;
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 54px;
+      font-weight: 400;
+      line-height: 1.25;
+      letter-spacing: -2px;
+    }
+
+    .hero-sub {
+      margin: 14px 0 0;
+      color: #55574f;
+      font-size: 14px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 24px;
+      margin-top: 20px;
+      color: #77746b;
+      font-family: Consolas, monospace;
+      font-size: 9px;
+      letter-spacing: 0.6px;
+    }
+
+    /* 图片区 */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 28px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid #c9c4b9;
+    }
+
+    .slice {
+      min-width: 0;
+    }
+
+    .photo {
+      position: relative;
+      display: block;
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      border: 6px solid #ffffff;
+      background: #e9e5dc;
+      box-shadow: 0 12px 28px rgba(50, 50, 40, 0.1);
+    }
+
+    .photo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.45s ease;
+    }
+
+    .photo:hover img {
+      transform: scale(1.035);
+    }
+
+    .photo-winter img {
+      object-position: top;
+    }
+
+    .view {
+      position: absolute;
+      right: 7px;
+      bottom: 7px;
+      padding: 2px 6px;
+      color: #ffffff;
+      background: rgba(20, 21, 30, 0.66);
+      font-family: Consolas, monospace;
+      font-size: 8px;
+      letter-spacing: 0.4px;
+    }
+
+    .slice-no {
+      margin: 12px 0 3px;
+      color: #1d3fbd;
+      font-family: Consolas, monospace;
+      font-size: 8px;
+      letter-spacing: 0.7px;
+    }
+
+    .slice h2 {
+      margin: 0 0 5px;
+      font-size: 17px;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
+    .slice p {
+      margin: 0;
+      color: #66685f;
+      font-size: 11px;
+      line-height: 1.8;
+    }
+
+    /* 页脚 */
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 16px;
+      color: #8d8a81;
+      font-family: Consolas, monospace;
+      font-size: 9px;
+      letter-spacing: 0.5px;
+    }
+
+    .footer a {
+      color: #1d3fbd;
+    }
+
+    /* 响应式 */
+    @media (max-width: 1000px) {
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 22px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .page {
+        padding: 20px 18px;
+      }
+
+      .header {
+        font-size: 10px;
+      }
+
+      .brand {
+        font-size: 11px;
+      }
+
+      .nav {
+        gap: 10px;
+        font-size: 9px;
+      }
+
+      .hero {
+        padding: 34px 0 26px;
+      }
+
+      h1 {
+        font-size: 40px;
+        letter-spacing: -1px;
+      }
+
+      .hero-sub {
+        font-size: 13px;
+      }
+
+      .hero-meta {
+        margin-top: 15px;
+        font-size: 8px;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+        gap: 26px;
+        margin-top: 22px;
+        padding-bottom: 22px;
+      }
+
+      .footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <a class="brand" href="../index.html">
+        <span class="logo">FH</span>
+        <span>范皓博</span>
+      </a>
+      <nav class="nav" aria-label="页面导航">
+        <a href="../index.html">首页</a>
+        <a href="study.html">学习轨迹</a>
+        <a class="active" href="life.html" aria-current="page">生活切片</a>
+        <a href="interest.html">兴趣档案</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <p class="eyebrow">SLICES OF LIFE / 生活切片</p>
+        <h1>生活切片</h1>
+        <p class="hero-sub">四个普通的日子：忙、绿、冷，还有工训。</p>
+        <div class="hero-meta">
+          <span>2026 / 武汉</span>
+          <span>04 FRAGMENTS</span>
+          <span>PHOTO + TEXT</span>
+        </div>
+      </section>
+
+      <section class="gallery" aria-label="生活切片相册">
+        <article class="slice">
+          <a class="photo" href="../image/life/01-workday.jpg" target="_blank" rel="noopener" aria-label="查看繁忙的工作日原图">
+            <img src="../image/life/01-workday.jpg" alt="排满课程的课程表截图" width="1206" height="1779" decoding="async">
+            <span class="view">原图 ↗</span>
+          </a>
+          <p class="slice-no">SLICE 01 / WORKDAY</p>
+          <h2>繁忙的工作日</h2>
+          <p>课表从早排到晚，忙碌，但每一格都知道自己在忙什么。</p>
+        </article>
+
+        <article class="slice">
+          <a class="photo" href="../image/life/02-vegetable.jpg" target="_blank" rel="noopener" aria-label="查看绿色蔬菜原图">
+            <img src="../image/life/02-vegetable.jpg" alt="手里拿着一把新鲜绿色蔬菜" width="1137" height="1800" decoding="async">
+            <span class="view">原图 ↗</span>
+          </a>
+          <p class="slice-no">SLICE 02 / BREAKFAST</p>
+          <h2>早餐伴侣——绿色蔬菜</h2>
+          <p>早餐里最稳定的一抹绿色，简单，但让一天清爽地开始。</p>
+        </article>
+
+        <article class="slice">
+          <a class="photo photo-winter" href="../image/life/03-winter.jpg" target="_blank" rel="noopener" aria-label="查看武汉冬天天气截图原图">
+            <img src="../image/life/03-winter.jpg" alt="武汉洪山区天气截图，最高气温13度" width="828" height="1800" decoding="async">
+            <span class="view">原图 ↗</span>
+          </a>
+          <p class="slice-no">SLICE 03 / WINTER</p>
+          <h2>在武汉的第一个冬天，冷冷冷。</h2>
+          <p>13°C 的最高温，也挡不住那种钻进衣服里的冷。</p>
+        </article>
+
+        <article class="slice">
+          <a class="photo" href="../image/life/04-training.jpg" target="_blank" rel="noopener" aria-label="查看工训机器人照片原图">
+            <img src="../image/life/04-training.jpg" alt="工程训练中的机械臂在白色板上写字" width="1800" height="1350" decoding="async">
+            <span class="view">原图 ↗</span>
+          </a>
+          <p class="slice-no">SLICE 04 / TRAINING</p>
+          <h2>喜欢又讨厌的工训</h2>
+          <p>喜欢它动起来的样子，也怕它一次次不听话。</p>
+        </article>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <a href="../index.html">← 返回个人主页</a>
+      <span>© 2026 范皓博 · 生活继续</span>
+    </footer>
+  </div>
+</body>
+</html>

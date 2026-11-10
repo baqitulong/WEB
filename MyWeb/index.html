@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="范皓博的个人主页">
+  <meta name="robots" content="noindex, nofollow">
+  <title>范皓博的个人主页</title>
+
+  <style>
+    /* 基础设置 */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: #20211e;
+      background-color: #f4f0e8;
+      background-image:
+        linear-gradient(rgba(35, 55, 110, 0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(35, 55, 110, 0.055) 1px, transparent 1px),
+        radial-gradient(circle at 90% 5%, #dce5ff 0, transparent 34%);
+      background-size: 72px 72px, 72px 72px, 100% 100%;
+      background-attachment: fixed;
+      font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      display: flex;
+      width: 100%;
+      max-width: 1080px;
+      min-height: 100vh;
+      margin: 0 auto;
+      padding: 28px 36px 22px;
+      flex-direction: column;
+    }
+
+    /* 顶部 */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #c9c4b9;
+      color: #77746b;
+      font-size: 11px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #20211e;
+      font-size: 11px;
+      letter-spacing: 1px;
+    }
+
+    .logo {
+      display: flex;
+      width: 32px;
+      height: 32px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #20211e;
+      font-family: Consolas, monospace;
+      font-size: 10px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-family: Consolas, monospace;
+      font-size: 10px;
+      letter-spacing: 0.5px;
+    }
+
+    .nav a {
+      color: #77746b;
+      transition: color 0.2s;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      color: #1d3fbd;
+    }
+
+    /* 主体内容 */
+    .main {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      justify-content: center;
+      padding: 42px 0 30px;
+    }
+
+    .intro {
+      display: flex;
+      align-items: center;
+      gap: 38px;
+    }
+
+    .portrait {
+      width: 180px;
+      flex: 0 0 180px;
+      margin: 0;
+    }
+
+    .portrait img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: 6px solid #ffffff;
+      box-shadow: 0 14px 35px rgba(50, 50, 40, 0.12);
+    }
+
+    .portrait-caption {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 8px;
+      color: #87847c;
+      font-family: Consolas, monospace;
+      font-size: 9px;
+      letter-spacing: 0.5px;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-bottom: 15px;
+      padding: 4px 8px;
+      border: 1px solid #aab8e7;
+      color: #1d3fbd;
+      font-family: Consolas, monospace;
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 64px;
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -3px;
+    }
+
+    .english {
+      margin: 0 0 20px;
+      color: #77746b;
+      font-family: Consolas, monospace;
+      font-size: 10px;
+      letter-spacing: 4px;
+    }
+
+    .school {
+      margin: 0;
+      color: #3e403a;
+      font-size: 14px;
+    }
+
+    .school span {
+      margin-right: 7px;
+      color: #1d3fbd;
+      font-family: Consolas, monospace;
+    }
+
+    /* 座右铭 */
+    .motto {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      margin-top: 34px;
+      padding: 22px 0 24px;
+      border-top: 1px solid #c9c4b9;
+      border-bottom: 1px solid #c9c4b9;
+    }
+
+    .motto-label {
+      width: 100px;
+      flex: 0 0 100px;
+      margin: 0;
+      color: #77746b;
+      font-family: Consolas, monospace;
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+
+    .motto-text {
+      margin: 0;
+      font-family: "Songti SC", "SimSun", serif;
+      font-size: 36px;
+      line-height: 1.55;
+    }
+
+    .motto-source {
+      align-self: flex-end;
+      margin: 0 0 6px auto;
+      color: #87847c;
+      font-size: 11px;
+    }
+
+    .dot {
+      color: #d45f48;
+    }
+
+    /* 三张信息卡片 */
+    .cards {
+      display: flex;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .card {
+      min-height: 142px;
+      flex: 1;
+      padding: 19px 21px;
+      border: 1px solid #d2cdc2;
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    .card h2 {
+      margin: 0 0 12px;
+      color: #77746b;
+      font-family: Consolas, monospace;
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 1px;
+    }
+
+    .contact a {
+      display: block;
+      margin: 6px 0;
+      color: #3e403a;
+      font-family: Consolas, monospace;
+      font-size: 12px;
+      transition: color 0.2s;
+    }
+
+    .contact a:hover {
+      color: #1d3fbd;
+    }
+
+    .honor {
+      margin: 0;
+      font-family: "Songti SC", "SimSun", serif;
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    .ambition {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.7;
+    }
+
+    /* 页脚 */
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 14px;
+      border-top: 1px solid #c9c4b9;
+      color: #8d8a81;
+      font-family: Consolas, monospace;
+      font-size: 9px;
+      letter-spacing: 0.5px;
+    }
+
+    /* 手机适配 */
+    @media (max-width: 700px) {
+      .page {
+        padding: 20px 18px;
+      }
+
+      .header {
+        font-size: 10px;
+      }
+
+      .brand {
+        font-size: 11px;
+      }
+
+      .nav {
+        gap: 10px;
+        font-size: 9px;
+      }
+
+      .main {
+        padding: 32px 0 24px;
+      }
+
+      .intro {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 22px;
+      }
+
+      .portrait {
+        width: 140px;
+        flex-basis: 140px;
+      }
+
+      .tag {
+        margin-bottom: 10px;
+      }
+
+      h1 {
+        font-size: 52px;
+        letter-spacing: -2px;
+      }
+
+      .english {
+        margin-bottom: 12px;
+      }
+
+      .school {
+        font-size: 13px;
+      }
+
+      .motto {
+        display: block;
+        margin-top: 26px;
+        padding: 18px 0 20px;
+      }
+
+      .motto-label {
+        width: auto;
+        margin-bottom: 8px;
+      }
+
+      .motto-text {
+        font-size: 29px;
+      }
+
+      .motto-source {
+        margin-top: 8px;
+        text-align: right;
+      }
+
+      .cards {
+        flex-direction: column;
+        margin-top: 22px;
+      }
+
+      .card {
+        min-height: auto;
+      }
+
+      .footer {
+        flex-direction: column;
+        gap: 5px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <header class="header">
+      <div class="brand">
+        <span class="logo">FH</span>
+        <span>范皓博</span>
+      </div>
+      <nav class="nav" aria-label="页面导航">
+        <a class="active" href="index.html" aria-current="page">首页</a>
+        <a href="web/study.html">学习轨迹</a>
+        <a href="web/life.html">生活切片</a>
+        <a href="web/interest.html">兴趣档案</a>
+      </nav>
+    </header>
+
+    <main class="main">
+      <!-- 个人画像与基本信息 -->
+      <section class="intro">
+        <figure class="portrait">
+          <img src="image/profile-portrait.jpg" alt="个人画像：雪夜极光与2018年12月日历">
+          <figcaption class="portrait-caption">
+            <span>PORTRAIT / 001</span>
+            <span>个人画像</span>
+          </figcaption>
+        </figure>
+
+        <div class="intro-text">
+          <p class="tag">计算机科学与技术 × 人工智能</p>
+          <h1>范皓博</h1>
+          <p class="english">FAN HAOBO</p>
+          <p class="school"><span>2026-</span>华中科技大学 · 计算机科学与技术学院本科生</p>
+        </div>
+      </section>
+
+      <!-- 座右铭 -->
+      <section class="motto">
+        <p class="motto-label">MOTTO / 座右铭</p>
+        <p class="motto-text">慎终如始，<br>则无败事<span class="dot">。</span></p>
+        <p class="motto-source">《道德经》</p>
+      </section>
+
+      <!-- 联系方式、获奖与愿景 -->
+      <section class="cards">
+        <div class="card contact">
+          <h2>CONTACT / 联系方式</h2>
+          <a href="mailto:baqitulong@qq.com">邮箱：baqitulong@qq.com</a>
+          <a href="tel:18920517209">手机：189 2051 7209</a>
+        </div>
+
+        <div class="card">
+          <h2>HONORS / 获奖情况</h2>
+          <p class="honor">“曾获得很多奖项，<br>但此处空白太小，写不下。”</p>
+        </div>
+
+        <div class="card">
+          <h2>AMBITION / 愿景</h2>
+          <p class="ambition">给大肥鱼<br>一个完整的人生<span class="dot">。</span></p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>© 2026 范皓博</span>
+      <span>while (curious) { learn(); }</span>
+      <span>HTML + CSS</span>
+    </footer>
+  </div>
+</body>
+</html>
